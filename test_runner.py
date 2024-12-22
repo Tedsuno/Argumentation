@@ -57,15 +57,39 @@ tests = [
         "expected_output": "Credulously accepted arguments:\nA"
     },
     {
-        "command": "python3 project.py -p DC-ST -f test_af1.apx -a D",
+        "command": "python3 project.py -p DC-ST -f test_af1.apx -a B",
         "expected_output": "Credulously accepted arguments:\nD"
     },
     {
+        "command": "python3 project.py -p DC-ST -f test_af1.apx -a C",
+        "expected_output": "Skeptically accepted arguments:\nA"
+    },
+        {
+        "command": "python3 project.py -p DC-ST -f test_af1.apx -a D",
+        "expected_output": "Skeptically accepted arguments:\nA"
+    },
+    {
+        "command": "python3 project.py -p DC-ST -f test_af1.apx -a E",
+        "expected_output": "Skeptically accepted arguments:\nD"
+    },
+    {
         "command": "python3 project.py -p DS-ST -f test_af1.apx -a A",
+        "expected_output": "Credulously accepted arguments:\nA"
+    },
+    {
+        "command": "python3 project.py -p DS-ST -f test_af1.apx -a B",
+        "expected_output": "Credulously accepted arguments:\nD"
+    },
+    {
+        "command": "python3 project.py -p DS-ST -f test_af1.apx -a C",
         "expected_output": "Skeptically accepted arguments:\nA"
     },
     {
         "command": "python3 project.py -p DS-ST -f test_af1.apx -a D",
+        "expected_output": "Skeptically accepted arguments:\nA"
+    },
+    {
+        "command": "python3 project.py -p DS-ST -f test_af1.apx -a E",
         "expected_output": "Skeptically accepted arguments:\nD"
     }
 ]

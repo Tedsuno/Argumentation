@@ -16,15 +16,19 @@ class ArgumentationFramework:
 
         with open(file_path, 'r') as file:
             for line in file:
-                if line.startswith("arg("):
-                    arg = line.strip()[4:-2]
+                line = line.strip()
+                if line.startswith("arg(") and line.endswith(")."):
+                    arg = line[4:-2].strip()
                     arguments.add(arg)
-                elif line.startswith("att("):
-                    attack = line.strip()[4:-2]
+                elif line.startswith("att(") and line.endswith(")."):
+                    attack = line[4:-2].strip()
                     attacker, target = attack.split(',')
-                    attacks.add((attacker, target))
+                    attacks.add((attacker.strip(), target.strip()))
 
         return ArgumentationFramework(arguments, attacks)
+
+
+
 
     def is_conflict_free(self, subset: Set[str]) -> bool:
         """Check if a subset of arguments is conflict-free."""
@@ -40,13 +44,24 @@ class ArgumentationFramework:
 #Sous-ensemble {a, c} : Aucun argument n’attaque l’autre, donc sans conflit.
 #Sous-ensemble {a, b} : a attaque b, donc pas sans conflit.
 
-    def defends(self, arg: str, subset: Set[str]) -> bool:
+    def defends(self, arg: str, subset: Set[str]) -> bool: #est-ce que l'ensemble subset défend arg
         """Check if a subset defends an argument."""
+        #nb_attaquant = 0
         for attacker, target in self.attacks:
-            if target == arg: # La condition vérifie si l'argument arg est la cible d'une attaque, on s'intéresse donc aux attaquants qui visent directement arg.
-                if not any((defender, attacker) in self.attacks for defender in subset):  # Vérifier si un attaquant (defender) dans subset défend arg en attaquant son attaquant
+
+            # Vérifier si l'argument arg est la cible d'une attaque
+            if target == arg:
+                #nb_attaquant += 1
+                # Afficher les conditions vérifiées
+                
+                # Vérifier si un défenseur attaque l'attaquant
+                if not any((defender, attacker) in self.attacks for defender in subset):
                     return False
+        #if nb_attaquant == 0:
+            #return False
         return True
+        
+
 
 #af = ArgumentationFramework({"a", "b", "c"}, {("a", "b"), ("b", "c")})
 #print(af.defends("b", {"a"}))  # True
@@ -76,7 +91,7 @@ class ArgumentationFramework:
         for subset in self.power_set():
             if self.is_admissible(subset):
                 defended = set(arg for arg in self.arguments if self.defends(arg, subset))
-                print(f"Subset: {subset}, Defended: {defended}")  # Affiche le sous-ensemble et les arguments défendus
+                #print(f"Subset: {subset}, Defended: {defended}")  # Affiche le sous-ensemble et les arguments défendus
                 if subset == defended:
                     extensions.append(subset)
         return extensions
@@ -92,11 +107,14 @@ class ArgumentationFramework:
         """Compute all stable extensions."""
         extensions = []
         for subset in self.power_set():
-            if self.is_conflict_free(subset):
-                attacked = {target for attacker in subset for attacker, target in self.attacks}
-                if attacked.union(subset) == self.arguments:
+            if self.is_conflict_free(subset):  # Vérifie si l'ensemble est sans conflit
+                # Arguments attaqués par le sous-ensemble
+                attacked = {target for attacker, target in self.attacks if attacker in subset}
+                # Vérifie si tout argument non dans subset est attaqué
+                if all(arg in attacked for arg in self.arguments - subset):
                     extensions.append(subset)
         return extensions
+
 
 #af = ArgumentationFramework({"a", "b", "c"}, {("a", "b"), ("b", "c")})
 #print(af.stable_extensions())  # [{'a', 'c'}]
@@ -160,4 +178,15 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # Charger le fichier d'entrée
+    af = ArgumentationFramework.from_file("test_af2.apx")
+    
+    # Afficher les arguments et attaques
+    print("Arguments:", af.arguments)
+    print("Attacks:", af.attacks)
+    
+    # Calculer les extensions stables
+    stable = af.stable_extensions()
+    print("Stable Extensions:", stable)
+
+

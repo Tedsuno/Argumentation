@@ -149,11 +149,20 @@ def main():
     # Solve the problem based on the specified type
     if args.p == "SE-CO":
         extensions = af.complete_extensions()
-        print(extensions[0] if extensions else "NO")
+        # Trier uniquement les éléments à l'intérieur de chaque ensemble
+        sorted_extensions = [sorted(ext) for ext in extensions]
+        sorted_extensions.sort()
+        print(sorted_extensions)
+        #print(extensions[0] if extensions else "NO")
 
     elif args.p == "SE-ST":
         extensions = af.stable_extensions()
-        print(extensions[0] if extensions else "NO")
+        # Convertir chaque ensemble en une liste triée
+        sorted_extensions = [sorted(ext) for ext in extensions]
+        # Trier globalement les ensembles pour un ordre cohérent
+        sorted_extensions.sort()
+        print(sorted_extensions)
+
 
     elif args.p.startswith("DC") or args.p.startswith("DS"):
         if not args.a:
@@ -178,15 +187,6 @@ def main():
 
 
 if __name__ == "__main__":
-    # Charger le fichier d'entrée
-    af = ArgumentationFramework.from_file("test_af2.apx")
-    
-    # Afficher les arguments et attaques
-    print("Arguments:", af.arguments)
-    print("Attacks:", af.attacks)
-    
-    # Calculer les extensions stables
-    stable = af.stable_extensions()
-    print("Stable Extensions:", stable)
+    main()
 
 

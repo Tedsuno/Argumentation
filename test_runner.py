@@ -9,29 +9,130 @@ tests = [
         "command": "python3 project.py -p SE-ST -f test_af1.apx",
         "expected_output": "[['A', 'D'], ['B', 'D']]"
     },
+    {
+        "command": "python3 project.py -p SE-ST -f test_af1.apx",
+        "expected_output": "[['A', 'D'], ['B', 'D']]"
+    },
+    {
+        "command": "python3 project.py -p SE-ST -f test_af1.apx",
+        "expected_output": "[['A', 'D'], ['B', 'D']]"
+    },
+    {
+        "command": "python3 project.py -p SE-ST -f test_af1.apx",
+        "expected_output": "[['A', 'D'], ['B', 'D']]"
+    },
+    {
+        "command": "python3 project.py -p SE-ST -f test_af1.apx",
+        "expected_output": "[['A', 'D'], ['B', 'D']]"
+    },
+
     # Skeptically accepted arguments
     {
-        "command": "python3 project.py -p DS-ST -f test_af1.apx",
+        "command": "python3 project.py -p DS-ST -f test_af1.apx -a A",
         "expected_output": "Skeptically accepted arguments:\nD"
     },
+    {
+        "command": "python3 project.py -p DS-ST -f test_af1.apx -a B",
+        "expected_output": "Skeptically accepted arguments:\nD"
+    },
+    {
+        "command": "python3 project.py -p DS-ST -f test_af1.apx -a C",
+        "expected_output": "Skeptically accepted arguments:\nD"
+    },
+    {
+        "command": "python3 project.py -p DS-ST -f test_af1.apx -a D",
+        "expected_output": "Skeptically accepted arguments:\nD"
+    },
+    {
+        "command": "python3 project.py -p DS-ST -f test_af1.apx -a E",
+        "expected_output": "Skeptically accepted arguments:\nD"
+    },
+
     # Credulously accepted arguments
     {
-        "command": "python3 project.py -p DC-ST -f test_af1.apx",
+        "command": "python3 project.py -p DC-ST -f test_af1.apx -a A",
         "expected_output": "Credulously accepted arguments:\nA, B, D"
     },
+    {
+        "command": "python3 project.py -p DC-ST -f test_af1.apx -a B",
+        "expected_output": "Credulously accepted arguments:\nA, B, D"
+    },
+    {
+        "command": "python3 project.py -p DC-ST -f test_af1.apx -a C",
+        "expected_output": "Credulously accepted arguments:\nA, B, D"
+    },
+    {
+        "command": "python3 project.py -p DC-ST -f test_af1.apx -a D",
+        "expected_output": "Credulously accepted arguments:\nA, B, D"
+    },
+    {
+        "command": "python3 project.py -p DC-ST -f test_af1.apx -a E",
+        "expected_output": "Credulously accepted arguments:\nA, B, D"
+    },
+
     # Complete extensions
     {
         "command": "python3 project.py -p SE-CO -f test_af1.apx",
         "expected_output": "[[], ['A', 'D'], ['B', 'D']]"
     },
+    {
+        "command": "python3 project.py -p SE-CO -f test_af1.apx",
+        "expected_output": "[[], ['A', 'D'], ['B', 'D']]"
+    },
+    {
+        "command": "python3 project.py -p SE-CO -f test_af1.apx",
+        "expected_output": "[[], ['A', 'D'], ['B', 'D']]"
+    },
+    {
+        "command": "python3 project.py -p SE-CO -f test_af1.apx",
+        "expected_output": "[[], ['A', 'D'], ['B', 'D']]"
+    },
+    {
+        "command": "python3 project.py -p SE-CO -f test_af1.apx",
+        "expected_output": "[[], ['A', 'D'], ['B', 'D']]"
+    },
+
     # Skeptically accepted arguments for complete extensions
     {
-        "command": "python3 project.py -p DS-CO -f test_af1.apx",
+        "command": "python3 project.py -p DS-CO -f test_af1.apx -a A",
         "expected_output": "Skeptically accepted arguments:\nNone of them"
     },
+    {
+        "command": "python3 project.py -p DS-CO -f test_af1.apx -a B",
+        "expected_output": "Skeptically accepted arguments:\nNone of them"
+    },
+    {
+        "command": "python3 project.py -p DS-CO -f test_af1.apx -a C",
+        "expected_output": "Skeptically accepted arguments:\nNone of them"
+    },
+    {
+        "command": "python3 project.py -p DS-CO -f test_af1.apx -a D",
+        "expected_output": "Skeptically accepted arguments:\nNone of them"
+    },
+    {
+        "command": "python3 project.py -p DS-CO -f test_af1.apx -a E",
+        "expected_output": "Skeptically accepted arguments:\nNone of them"
+    },
+
     # Credulously accepted arguments for complete extensions
     {
-        "command": "python3 project.py -p DC-CO -f test_af1.apx",
+        "command": "python3 project.py -p DC-CO -f test_af1.apx -a A",
+        "expected_output": "Credulously accepted arguments:\nA, B, D"
+    },
+    {
+        "command": "python3 project.py -p DC-CO -f test_af1.apx -a B",
+        "expected_output": "Credulously accepted arguments:\nA, B, D"
+    },
+    {
+        "command": "python3 project.py -p DC-CO -f test_af1.apx -a C",
+        "expected_output": "Credulously accepted arguments:\nA, B, D"
+    },
+    {
+        "command": "python3 project.py -p DC-CO -f test_af1.apx -a D",
+        "expected_output": "Credulously accepted arguments:\nA, B, D"
+    },
+    {
+        "command": "python3 project.py -p DC-CO -f test_af1.apx -a E",
         "expected_output": "Credulously accepted arguments:\nA, B, D"
     },
     
@@ -274,34 +375,140 @@ tests = [
     },
     
     # Stable extensions
+    # Stable extensions
     {
         "command": "python3 project.py -p SE-ST -f test_af5.apx",
         "expected_output": "Stable extensions:\n[['A', 'C', 'F']]"
     },
+    {
+        "command": "python3 project.py -p SE-ST -f test_af5.apx",
+        "expected_output": "Stable extensions:\n[['A', 'C', 'F']]"
+    },
+    {
+        "command": "python3 project.py -p SE-ST -f test_af5.apx",
+        "expected_output": "Stable extensions:\n[['A', 'C', 'F']]"
+    },
+    {
+        "command": "python3 project.py -p SE-ST -f test_af5.apx",
+        "expected_output": "Stable extensions:\n[['A', 'C', 'F']]"
+    },
+    {
+        "command": "python3 project.py -p SE-ST -f test_af5.apx",
+        "expected_output": "Stable extensions:\n[['A', 'C', 'F']]"
+    },
+
     # Skeptically accepted arguments
     {
-        "command": "python3 project.py -p DS-ST -f test_af5.apx",
+        "command": "python3 project.py -p DS-ST -f test_af5.apx -a A",
         "expected_output": "Skeptically accepted arguments:\nA, C, F"
     },
+    {
+        "command": "python3 project.py -p DS-ST -f test_af5.apx -a B",
+        "expected_output": "Skeptically accepted arguments:\nNone of them"
+    },
+    {
+        "command": "python3 project.py -p DS-ST -f test_af5.apx -a C",
+        "expected_output": "Skeptically accepted arguments:\nA, C, F"
+    },
+    {
+        "command": "python3 project.py -p DS-ST -f test_af5.apx -a D",
+        "expected_output": "Skeptically accepted arguments:\nNone of them"
+    },
+    {
+        "command": "python3 project.py -p DS-ST -f test_af5.apx -a E",
+        "expected_output": "Skeptically accepted arguments:\nNone of them"
+    },
+
     # Credulously accepted arguments
     {
-        "command": "python3 project.py -p DC-ST -f test_af5.apx",
+        "command": "python3 project.py -p DC-ST -f test_af5.apx -a A",
         "expected_output": "Credulously accepted arguments:\nA, C, F"
     },
+    {
+        "command": "python3 project.py -p DC-ST -f test_af5.apx -a B",
+        "expected_output": "Credulously accepted arguments:\nNone of them"
+    },
+    {
+        "command": "python3 project.py -p DC-ST -f test_af5.apx -a C",
+        "expected_output": "Credulously accepted arguments:\nA, C, F"
+    },
+    {
+        "command": "python3 project.py -p DC-ST -f test_af5.apx -a D",
+        "expected_output": "Credulously accepted arguments:\nNone of them"
+    },
+    {
+        "command": "python3 project.py -p DC-ST -f test_af5.apx -a E",
+        "expected_output": "Credulously accepted arguments:\nNone of them"
+    },
+
     # Complete extensions
     {
         "command": "python3 project.py -p SE-CO -f test_af5.apx",
         "expected_output": "Complete extensions:\n[[], ['A', 'C', 'F']]"
     },
+    {
+        "command": "python3 project.py -p SE-CO -f test_af5.apx",
+        "expected_output": "Complete extensions:\n[[], ['A', 'C', 'F']]"
+    },
+    {
+        "command": "python3 project.py -p SE-CO -f test_af5.apx",
+        "expected_output": "Complete extensions:\n[[], ['A', 'C', 'F']]"
+    },
+    {
+        "command": "python3 project.py -p SE-CO -f test_af5.apx",
+        "expected_output": "Complete extensions:\n[[], ['A', 'C', 'F']]"
+    },
+    {
+        "command": "python3 project.py -p SE-CO -f test_af5.apx",
+        "expected_output": "Complete extensions:\n[[], ['A', 'C', 'F']]"
+    },
+
     # Skeptically accepted arguments for complete extensions
     {
-        "command": "python3 project.py -p DS-CO -f test_af5.apx",
+        "command": "python3 project.py -p DS-CO -f test_af5.apx -a A",
         "expected_output": "Skeptically accepted arguments:\nNone of them"
     },
+    {
+        "command": "python3 project.py -p DS-CO -f test_af5.apx -a B",
+        "expected_output": "Skeptically accepted arguments:\nNone of them"
+    },
+    {
+        "command": "python3 project.py -p DS-CO -f test_af5.apx -a C",
+        "expected_output": "Skeptically accepted arguments:\nNone of them"
+    },
+    {
+        "command": "python3 project.py -p DS-CO -f test_af5.apx -a D",
+        "expected_output": "Skeptically accepted arguments:\nNone of them"
+    },
+    {
+        "command": "python3 project.py -p DS-CO -f test_af5.apx -a E",
+        "expected_output": "Skeptically accepted arguments:\nNone of them"
+    },
+
     # Credulously accepted arguments for complete extensions
     {
-        "command": "python3 project.py -p DC-CO -f test_af5.apx",
+        "command": "python3 project.py -p DC-CO -f test_af5.apx -a A",
         "expected_output": "Credulously accepted arguments:\nA, C, F"
+    },
+    {
+        "command": "python3 project.py -p DC-CO -f test_af5.apx -a B",
+        "expected_output": "Credulously accepted arguments:\nNone of them"
+    },
+    {
+        "command": "python3 project.py -p DC-CO -f test_af5.apx -a C",
+        "expected_output": "Credulously accepted arguments:\nA, C, F"
+    },
+    {
+        "command": "python3 project.py -p DC-CO -f test_af5.apx -a D",
+        "expected_output": "Credulously accepted arguments:\nNone of them"
+    },
+    {
+        "command": "python3 project.py -p DC-CO -f test_af5.apx -a E",
+        "expected_output": "Credulously accepted arguments:\nNone of them"
+    },
+    {
+        "command": "python3 project.py -p DC-CO -f test_af5.apx -a F",
+        "expected_output": "Credulously accepted arguments:\nNone of them"
     }
 ]
 

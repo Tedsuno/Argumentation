@@ -16,17 +16,17 @@ def main():
     # Ensuite en fonction des options on renvoie la sortie correspondante
     if args.p == "SE-CO":
         #Ici les extensions complètes
-        print(sorted([sorted(ext) for ext in af.complete_extensions()]))
+        print(sorted([sorted(ext) for ext in af.extensions_complete()]))
         #Ici les extensions stables
     elif args.p == "SE-ST":
-        print(sorted([sorted(ext) for ext in af.stable_extensions()]))
+        print(sorted([sorted(ext) for ext in af.extensions_stable()]))
     #Ici les DC et DS avec argument
     elif args.p.startswith("DC") or args.p.startswith("DS"):
         if not args.a:
             print("L'argument -a est requit")
             return
         argument = args.a
-        extension_type = af.complete_extensions if "CO" in args.p else af.stable_extensions
+        extension_type = af.extensions_complete if "CO" in args.p else af.extensions_stable
         verification = any if "DC" in args.p else all
         print("YES" if verification(argument in ext for ext in extension_type()) else "NO")
 
